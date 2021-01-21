@@ -1,0 +1,66 @@
+
+.paperLogin{
+    max-width: 650px;
+    height: 390px;
+    display: flex;
+    flex:1;
+    justify-content: center;
+    box-shadow: -1px 4px 20px -6px rgba(0,0,0,0.75);
+    margin-top: 50px;
+  }
+  .parentPaperLogin {
+    width: 100%;
+    min-width: 600px;
+    height: 90vh;
+    
+    display: flex;
+    flex:1;
+    justify-content: center;
+    align-items: center;
+    
+    /* color:green; */
+    background-color: whitesmoke;
+    /* background-color: teal; */
+   
+  
+  }
+  .signupIconLogin{
+    display: flex;
+    flex-direction: column;
+    margin-left: 200px;
+    flex-wrap: nowrap;
+    margin-top: 25px;
+    margin-bottom: 10px;
+  /* justify-content: center; */
+  }
+  .signupIconLogin >h2 {
+    margin-top: 10px;
+    margin-left: -22px;
+  }
+  .doorIconLogin{
+    /* height: 500px; */
+    /* color: green; */
+    transform: scale(2.5);
+  }
+
+  .linktag {
+      text-decoration: none;
+      color: black;
+      
+  }
+
+  .linktag:hover {
+    
+    color: blue;
+    
+}
+
+  .linkTagParent{
+
+    margin-top: 20px;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    width: 410px;
+
+  }

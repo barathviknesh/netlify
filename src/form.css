@@ -1,0 +1,67 @@
+.body,html{
+    background-color: whitesmoke;
+    height: 100vh;
+}
+.paper{
+  max-width: 650px;
+  height: 590px;
+  display: flex;
+  flex:1;
+  justify-content: center;
+  box-shadow: -1px 4px 20px -6px rgba(0,0,0,0.75);
+  margin-top: 50px;
+  /* padding-top: 50px; */
+}
+.parentpaper {
+  width: 100%;
+  min-width: 600px;
+  height: 90vh;
+  display: flex;
+  flex:1;
+  justify-content: center;
+  
+  /* color:green; */
+  background-color: whitesmoke;
+ 
+
+}
+.signupicon{
+  display: flex;
+  flex-direction: column;
+  margin-left: 220px;
+  flex-wrap: nowrap;
+  margin-top: 25px;
+  margin-bottom: 10px;
+/* justify-content: center; */
+}
+.signupicon >h2 {
+  margin-top: 10px;
+  margin-left: -22px;
+}
+.dooricon{
+  /* height: 500px; */
+  /* color: green; */
+  transform: scale(2.5);
+}
+
+.linkTagParentform{
+    margin-top: 20px;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    width: 410px;
+
+}
+.linktagform{
+
+   text-decoration: none;
+      color: black;
+      padding-left: 90px;
+      
+  }
+
+.linktagform:hover {
+    
+    color: blue;
+    
+}

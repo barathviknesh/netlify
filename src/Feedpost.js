@@ -1,31 +1,37 @@
 import React,{useEffect, useState, useContext} from 'react';
 import { UserContext } from './App';
 import { makeStyles } from '@material-ui/core/styles';
-import clsx from 'clsx';
+// import clsx from 'clsx';
 import Card from '@material-ui/core/Card';
 import CardHeader from '@material-ui/core/CardHeader';
 import CardMedia from '@material-ui/core/CardMedia';
 import CardContent from '@material-ui/core/CardContent';
 import CardActions from '@material-ui/core/CardActions';
-import Collapse from '@material-ui/core/Collapse';
+// import Collapse from '@material-ui/core/Collapse';
 import Avatar from '@material-ui/core/Avatar';
 import IconButton from '@material-ui/core/IconButton';
 import Typography from '@material-ui/core/Typography';
 import { red } from '@material-ui/core/colors';
 import FavoriteIcon from '@material-ui/icons/Favorite';
 import ShareIcon from '@material-ui/icons/Share';
-import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
+// import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import MoreVertIcon from '@material-ui/icons/MoreVert';
 import './feedpost.css';
 import ChatBubbleOutlineIcon from '@material-ui/icons/ChatBubbleOutline';
 
 
 const useStyles = makeStyles((theme) => ({
+
+  Card: {
+    width: 300,
+    margin: 'auto'
+  },
   root: {
     maxWidth: 600,
   },
   media: {
     height: 0,
+    
     paddingTop: '56.25%', // 16:9
   },
   expand: {
@@ -43,6 +49,18 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
+const styles = theme => ({
+  Card: {
+    width: 300,
+    margin: 'auto'
+  },
+  Media: {
+    height: 550,
+    width: '100%',
+    objectFit: 'cover'
+  }
+});
+
 export default function RecipeReviewCard({setreload}) {
 
 
@@ -50,7 +68,7 @@ export default function RecipeReviewCard({setreload}) {
 
 const likePost =(id)=>{
  
-fetch("https://crayond.herokuapp.com/like",{
+fetch("/like",{
   method:"post",
   headers:{
       "content-type":"application/json",
@@ -75,8 +93,7 @@ setData(newData)
 }).catch(err=>{
   console.log(err);
 })
-// setchange("455")
-// setchange("75")
+
 window.location.reload();
 
 random()
@@ -89,7 +106,7 @@ const random =()=>{
 }
 
 const unlikePost =(id)=>{
-  fetch('https://crayond.herokuapp.com/unlike',{
+  fetch('/unlike',{
     method:"put",
     headers:{
       "content-type":"application/json",
@@ -107,28 +124,12 @@ const unlikePost =(id)=>{
     window.location.reload();
     random()
 }
-//   const AddNew = ({}) => {
-//     const [file, setFile] = React.useState(null)
-    
-//     const fileHandler = (e) => {
-//         setFile(e.target.files[0])
-//     }
-    
-//     return (
-//         <div>
-//             <img src={file? URL.createObjectURL(file) : null} alt={file? file.name : null}/>
-//             <input type="file" onChange={fileHandler} />
-//         </div>
-//     )
-// }
 
-
-// export const [reloadFeed,setreloadFeed] =useState("false");
 
   const [data,setData]=useState([]);
     const {state,dispatch} = useContext(UserContext);
 useEffect(()=>{
-    fetch('https://crayond.herokuapp.com/mypost',{
+    fetch('/mypost',{
         headers:{
             "Authorization":"Bearer "+localStorage.getItem("jwt")
         }
@@ -150,18 +151,16 @@ useEffect(()=>{
     setExpanded(!expanded);
   };
 
-  return (
+ if(data.length > 0){ return (
 <>
 <div className="feedposterBody">
   <hr style={{ border: "0.1px solid gray","margin-top":"10px", "margin-bottom":"10px"}}/>
 {data.map(item=>{
   return(
 <>
-<div className="feedposter">
-  {/* <div>
-  <AddNew />
-  </div> */}
-<Card className={classes.root} style={{"width":"600px", "margin-top":"5px","margin-bottom":"5px"}}>
+<div className="feedposter" key={Math.random()*0.125478+5}>
+  
+<Card className={classes.root} style={{"width":"600px", "margin-top":"5px","margin-bottom":"5px"}} >
       <CardHeader
         avatar={
           <Avatar src={state?state.pic:"loading"} aria-label="recipe" className={classes.avatar}>
@@ -181,7 +180,7 @@ useEffect(()=>{
                                             {item.body}
         </Typography>
 
-      <CardMedia
+      <CardMedia 
         className={classes.media}
         image={item.photo}
         title={item.title}
@@ -203,24 +202,13 @@ useEffect(()=>{
         </IconButton>
 
         <p style={{"margin-left":"5px"}}>{item.likes.length} likes</p>
-        {/* <IconButton
-          className={clsx(classes.expand, {
-            [classes.expandOpen]: expanded,
-          })}
-          onClick={handleExpandClick}
-          aria-expanded={expanded}
-          aria-label="show more"
-        >
-          <ExpandMoreIcon />
-        </IconButton> */}
+       
       </CardActions>
       
     </Card>
 
 </div>
-{/* <div class="sorry">
-  <h6>sorry! no post available.</h6>
-</div> */}
+
 </>
   )
 })}
@@ -230,4 +218,17 @@ useEffect(()=>{
 
     </>
   );
+}
+
+
+else{
+
+  return(
+    
+    <div className="nopost">
+ <hr style={{ border: "0.1px solid","margin-top":"10px", "margin-bottom":"10px","width":"600px"}}/>
+ <p>Sorry No post available :( </p>
+    </div>
+  )
+}
 }

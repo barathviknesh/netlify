@@ -20,7 +20,7 @@ function Signup() {
         // M.toast({html:"invalid E-mail"})
         return
     }
-    fetch("https://crayond.herokuapp.com/signup",{
+    fetch("/signup",{
         method:"post",
         headers:{
             "content-type":"application/json"

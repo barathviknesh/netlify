@@ -152,7 +152,7 @@ const Addpic=()=> {
 useEffect(()=>{
 if(url && body.length > 0){
 
-fetch("https://crayond.herokuapp.com/createpost",{
+fetch("/createpost",{
     method:"post",
     headers:{
         "content-type":"application/json",

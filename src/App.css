@@ -10,6 +10,9 @@
 body::-webkit-scrollbar {
   display: none;
 }
+
+
+/* https://crayond.herokuapp.com/ */
 /* 
 .paper{
   max-width: 650px;
@@ -70,9 +73,11 @@ body::-webkit-scrollbar {
 }
 
 body {
-  /* -moz-transform": scale(0.8, 0.8); Moz-browsers */
+  /* -moz-transform": scale(0.8, 0.8);  */
+  /* Moz-browsers, */
   zoom: 0.8; /* Other non-webkit browsers */
   zoom: 80%; /* Webkit browsers */
+ 
 }
 
 
@@ -110,7 +115,7 @@ body {
 
 
 
-
+/* 
 
 
 
@@ -118,8 +123,9 @@ body {
   margin: 0;
   padding: 0;
   background: #000;
-  overflow: hidden; }
-
+  /* overflow: hidden;  */
+/* } */
+/* 
 .pyro > .before, .pyro > .after {
   position: absolute;
   width: 5px;
@@ -298,4 +304,5 @@ body {
 
   80%, 99.9% {
     margin-top: 30%;
-    margin-left: 80%; } }
+    margin-left: 80%; } 
+  }  */

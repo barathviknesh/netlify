@@ -3,7 +3,7 @@ import { makeStyles, TextField } from '@material-ui/core';
 import Grid from '@material-ui/core/Grid';
 
 
-import React,{useState,useContext,useEffect} from 'react';
+import React,{useState,useContext} from 'react';
 import { Link,useHistory } from 'react-router-dom';
 import {UserContext} from './App';
 
@@ -82,11 +82,11 @@ const PostData = ()=>{
     }
 
     if(!/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(email)){
-        // M.toast({html:"invalid E-mail"})
+       
         setOpena(true);
         return
     }
-    fetch("https://crayond.herokuapp.com/signin",{
+    fetch("/signin",{
         method:"post",
         headers:{
             "content-type":"application/json"
@@ -100,13 +100,13 @@ const PostData = ()=>{
       .then(data=>{
           console.log(data);
           if(data.error){
-            //   M.toast({html:data.error})
+           
             setOpena(true);
           }else{
               localStorage.setItem("jwt",data.token)
               localStorage.setItem("user",JSON.stringify(data.user))
               dispatch({type:"USER",payload:data.user})
-            // M.toast({html:"successfully signed-in"})
+            
             myFunctionOff()
             setOpen(true);
               history.push('/profile')
@@ -147,7 +147,7 @@ const classes = useStyles();
     variant="outlined"
     label="email"
     value={email}
-    // onChange ={handleInputChange}
+    
     onChange={(e)=>setEmail(e.target.value)}
     name="email"
     type="text"
@@ -158,7 +158,7 @@ const classes = useStyles();
     variant="outlined"
     label="password"
     value={password}
-    // onChange ={handleInputChange}
+    
     onChange={(e)=>setPassword(e.target.value)}
     name="password"
     type="password"

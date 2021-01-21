@@ -1,7 +1,7 @@
 import { makeStyles, TextField } from '@material-ui/core';
 import React,{useState,useEffect} from 'react';
 import Grid from '@material-ui/core/Grid';
-import UseForm from './Useform';
+// import UseForm from './Useform';
 import Button from '@material-ui/core/Button';
 import Paper from '@material-ui/core/Paper';
 import MeetingRoomIcon from '@material-ui/icons/MeetingRoom';
@@ -22,14 +22,7 @@ const useStyles = makeStyles(theme =>({
     }
 }
 }))
-// const initialvalues = {
-//     fullName:"",
-//     password:"",
-//     email:"",
-//     profession:"",
-//     pic:""
 
-// }
 
 export default function Form() {
 
@@ -84,13 +77,13 @@ export default function Form() {
  
   
   
-  function myFunctionOff() {
-    setTimeout(function(){ document.getElementById("fire").style.visibility = "hidden"; }, 6000);
-  }
+  // function myFunctionOff() {
+  //   setTimeout(function(){ document.getElementById("fire").style.visibility = "hidden"; }, 6000);
+  // }
 
-  function myFunctionOn() {
-     document.getElementById("fire").style.visibility = "visible";
-  }
+  // function myFunctionOn() {
+  //    document.getElementById("fire").style.visibility = "visible";
+  // }
 
 
 
@@ -104,6 +97,7 @@ if(url){
     updatefield()
 }
 console.log("useeffectfrom Form.js line 50 executed")
+// history.push('/profile')
 },[url])
 
 
@@ -142,12 +136,12 @@ const updatefield=()=>{
     }
 
     if(!/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(email)){
-        // M.toast({html:"invalid E-mail"})
+       
         setOpenaemail(true);
         return
     }
     
-    fetch("https://crayond.herokuapp.com/signup",{
+    fetch("/signup",{
         method:"post",
         headers:{
             "content-type":"application/json"
@@ -164,18 +158,18 @@ const updatefield=()=>{
      .then(data=>{
        console.log(data);
           if(data.error){
-            //   M.toast({html:data.error})
+            
             setOpena(true);
           }else{
              setOpen(true);
-             myFunctionOn();
+            //  myFunctionOn();
              setName("");
              setPassword("");
              setEmail("");
              setprofession("");
              setImages("");
               seturl("");
-             myFunctionOff();
+            //  myFunctionOff();
 
 
           }
@@ -282,7 +276,7 @@ const classes = useStyles();
     <input type="file" 
            name="chooseFile" 
            id="chooseFile" 
-        //    value={images}
+        
            onChange={(e)=>setImages(e.target.files[0])}
            
         />
@@ -309,9 +303,7 @@ const classes = useStyles();
 </div>
 </Grid>
 
-{/* <Grid item xs={6}>
 
-</Grid> */}
 
             </Grid>
 

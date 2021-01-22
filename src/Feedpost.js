@@ -68,7 +68,7 @@ export default function RecipeReviewCard({setreload}) {
 
 const likePost =(id)=>{
  
-fetch("/like",{
+fetch("https://crayond.herokuapp.com/like",{
   method:"post",
   headers:{
       "content-type":"application/json",
@@ -106,7 +106,7 @@ const random =()=>{
 }
 
 const unlikePost =(id)=>{
-  fetch('/unlike',{
+  fetch('https://crayond.herokuapp.com/unlike',{
     method:"put",
     headers:{
       "content-type":"application/json",

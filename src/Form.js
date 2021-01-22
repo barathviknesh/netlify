@@ -141,7 +141,7 @@ const updatefield=()=>{
         return
     }
     
-    fetch("/signup",{
+    fetch("https://crayond.herokuapp.com/signup",{
         method:"post",
         headers:{
             "content-type":"application/json"

@@ -65,13 +65,13 @@ console.log(state," state from app.js")
     <BrowserRouter> 
     <div className="App">
      
- 
+  
       
       <div className="app_body">
       
         
   
-    
+  
      <Navbar/>
      <div>
      <Routing/>
@@ -97,6 +97,5 @@ export default App;
 
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
 
 

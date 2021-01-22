@@ -35,7 +35,6 @@ const useStyles = makeStyles((theme) => ({
   root: {
     minWidth: 600,
     
-    // maxwidth:1000,
     
   },
   media: {
@@ -58,59 +57,6 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 export default function RecipeReviewCard({setreload}) {
-
-// ////////////////////////////////////////////////////////////////////////////////////
-// const [image,setImage] = useState('');
-// const [loading,setloading] = useState(false);
-
-// const uploadImage = async e => {
-
-
-// const files = e.target.files
-// const data = new FormData()
-// data.append('file',files[0])
-// data.append("upload_preset","insta-clone")
-// setloading(true)
-// const res = await fetch(
-//   'https://api.cloudinary.com/v1_1/cloudnameone/image/upload',
-
-//   {
-//     method: 'POST',
-//     body: data
-//   }
-// )
-// const file = await res.json()
-
-// setImage(file.secure_url)
-// setloading(false)
-
-
-// /////////////////////////////////////////////////////////////////////////////////
-
-
-
-// const AddNew = ({}) => {
-  // const [file, setFile] = React.useState(null)
-  
-  // const fileHandler = (e) => {
-  //     setFile(e.target.files[0])
-  // }
-  
-  // return (
-      // <div>
-          // <img src={file? URL.createObjectURL(file) : null} alt={file? file.name : null}/>
-          // <input type="file" onChange={fileHandler} />
-      /* </div> */
-  // )
-// }
-
-
-
-
-
-
-
-
 
 
 
@@ -152,7 +98,7 @@ const Addpic=()=> {
 useEffect(()=>{
 if(url && body.length > 0){
 
-fetch("/createpost",{
+fetch("https://crayond.herokuapp.com/createpost",{
     method:"post",
     headers:{
         "content-type":"application/json",
@@ -168,11 +114,9 @@ fetch("/createpost",{
   .then(data=>{
       console.log(data);
       if(data.error){
-          // M.toast({html:data.error})
+         
       }else{
-        // M.toast({html:"posted successfully"})
-
-          // alert("posted successfully")
+        
           setImages("")
           setBody("")
           setOpen(true);
@@ -214,22 +158,6 @@ const postDetails =()=>{
 
 
 
-//   const data = new FormData()
-//   data.append("file",images)
-//   data.append("upload_preset","insta-clone")
-//   data.append("cloud_name","cloudnameone")
-//   fetch("https://api.cloudinary.com/v1_1/cloudnameone/image/upload",{
-//       method:"post",
-//       body:data
-//   })
-//   .then(res=>res.json())
-//   .then(data=>{
-//       setloading(data.url)
-//   })
-//   .catch(err=>{
-//       console.log(err)
-//   })
-// }
 
   const classes = useStyles();
   const [expanded, setExpanded] = React.useState(false);
@@ -257,16 +185,10 @@ const postDetails =()=>{
         title={state?state.name:"loading"}
         subheader={state?state.profession:"loading"}
       />
-      {/* <CardMedia
-        className={classes.media}
-        image="/static/images/cards/paella.jpg"
-        title="Paella dish"
-      /> */}
+    
 
-      {/* ///////////////////////////////////////////////// */}
-      {/* <div> */}
-        <div className="pre">
-        {/* <h1>upload image</h1> */}
+             <div className="pre">
+       
         
         
         <img className="previewimg" classname="it" src={images? URL.createObjectURL(images) : null} alt={images? images.name : null}/>
@@ -275,27 +197,11 @@ const postDetails =()=>{
         </IconButton>
           
           <input  id="inputpic"className="previewimginput" type="file" onChange={(e)=>setImages(e.target.files[0])} />
-          {/* <button  className="closed" onClick={()=>{setImages("")}}><CancelIcon/></button> */}
           
-        
-        {/* <input
-                 type="file"
-                 name="file"
-                 placeholder="upload an image"
-                 onChange={(e)=>setImages(e.target.files[0])}
-                //  accept="image/*"
-        />{url ? (
-          <h3>Loading..!</h3>
-        ):(
-          <img src={images} style={{width:'10px', height:"10px"}}/>
-        )} */}
+          
+     
         </div>
-        {/* </div> */}
-
-
-
-        {/* <img src={images? URL.createObjectURL(images) : null} alt={images? images.name : null}/>
-          <input type="file" onChange={(e)=>setImages(e.target.files[0])} /> */}
+       
 
 
 
@@ -303,19 +209,7 @@ const postDetails =()=>{
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-        {/* ////////////////////////////////////////////////////// */}
+        
       <CardContent>
         <Typography variant="body2" color="textSecondary" component="p">
           <div className="inputBottom">

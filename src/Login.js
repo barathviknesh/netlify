@@ -86,7 +86,7 @@ const PostData = ()=>{
         setOpena(true);
         return
     }
-    fetch("/signin",{
+    fetch("https://crayond.herokuapp.com/signin",{
         method:"post",
         headers:{
             "content-type":"application/json"
